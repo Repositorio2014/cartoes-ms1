@@ -10,11 +10,16 @@ public class DadosService {
     @Autowired
     private ApiCliente apiCliente;
 
+    @Autowired
+    private ClienteRepository clienteRepository;
+
     public String getCartaoId() {
         return apiCliente.getCartaoId();
     }
 
     public ClienteCartao create(ClienteCartao clienteCartao){
-        return apiCliente.create(clienteCartao);
+        ClienteCartao cliente = apiCliente.create(clienteCartao);
+        this.clienteRepository.save(cliente);
+        return cliente;
     }
 }
