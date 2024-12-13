@@ -1,5 +1,6 @@
 package br.com.cartoes_ms1.service;
 
+import br.com.cartoes_ms1.dto.ClienteCartao;
 import br.com.cartoes_ms1.dto.ClienteDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,7 +9,12 @@ import org.springframework.stereotype.Service;
 public class DadosService {
     @Autowired
     private ApiCliente apiCliente;
-    public ClienteDto obterDadosPorId(Long id) {
-        return apiCliente.getDadosPorId(id);
+
+    public String getCartaoId() {
+        return apiCliente.getCartaoId();
+    }
+
+    public ClienteCartao create(ClienteCartao clienteCartao){
+        return apiCliente.create(clienteCartao);
     }
 }
